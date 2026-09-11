@@ -1,0 +1,42 @@
+passed_frames kaydet
+
+-----çizimler için her karakter için hesapla(sadece 1 kere)
+x start
+y start
+fix to camera
+next line
+color ---
+x offset
+y offset
+scale ---
+scale x ---
+scale y ---
+alpha ---
+rotate letter
+rotate line
+font ---
+kerning
+line spacing
+delay
+sound
+scripts
+
+-----passed_frames değerini kullanacak olanlar (her frame için hesapla)(yazının nereye kadar yazılacağını hesaplayıp sadece onlar için hesapla)
+animation
+movement
+
+-----çizimler
+
+çiz layer
+
+çiz effect
+
+çiz sprites
+
+çiz sprite üstü effects
+
+play sound
+
+run scripts
+
+
