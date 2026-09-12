@@ -36,6 +36,7 @@
     {"id":{"name":"scrBasicTimer","path":"scripts/scrBasicTimer/scrBasicTimer.yy",},},
     {"id":{"name":"scrNewLetter","path":"scripts/scrNewLetter/scrNewLetter.yy",},},
     {"id":{"name":"scrNewText","path":"scripts/scrNewText/scrNewText.yy",},},
+    {"id":{"name":"scrNewTextCalculateLetter","path":"scripts/scrNewTextCalculateLetter/scrNewTextCalculateLetter.yy",},},
     {"id":{"name":"scrNewTextGroupEnd","path":"scripts/scrNewTextGroupEnd/scrNewTextGroupEnd.yy",},},
     {"id":{"name":"scrNewTextGroupStart","path":"scripts/scrNewTextGroupStart/scrNewTextGroupStart.yy",},},
     {"id":{"name":"scrNewTextSetIdentifiers","path":"scripts/scrNewTextSetIdentifiers/scrNewTextSetIdentifiers.yy",},},

@@ -424,5 +424,8 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 		}
 	}
 	
+	//Calculate letter placement and everything
+	scrNewTextCalculateLetter(TextBoxes[$textName]);
+	
 	show_debug_message(json_stringify(TextBoxes))
 }
