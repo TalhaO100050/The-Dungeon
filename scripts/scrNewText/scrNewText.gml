@@ -361,6 +361,8 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 			if (struct_exists(current_struct, ("_" + string(current_number) + "_text"))){
 				//Calculate parameters and add letters to the letterList
 				//we have current struct and text string ok? work with that here
+				
+				//You have to use another loop here for each letter.
 				array_push(TextBoxes[$textName].letterList, current_struct[$("_" + string(current_number) + "_text")]); //Test
 				
 				current_number ++;
