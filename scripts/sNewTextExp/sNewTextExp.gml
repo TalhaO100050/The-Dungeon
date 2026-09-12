@@ -111,23 +111,23 @@
 	%m[] -> Movement
 		[
 		sin_wave_up_down -> Movement option
-		sin_wave_left_right[speed="2"] -> Movement option with options
+		sin_wave_left_right(speed="2") -> Movement option with options
 		]
 		
 	
 	%e[] -> Effects
 		[
-		trail[copy_amount="4",alpha="0.5",alpha_decrease=true,color=c_yellow,size_incrase=true,max_size="2"] -> Trail effect with options
-		outline[size="5",color=c_black] -> Outline effect with options
-		shadow[size="5",color=c_black] -> Shadow effect with options
-		shadow_copy[copy_amount="5",angle="235"] -> Shadow copy effect with options
+		trail(copy_amount="4",alpha="0.5",alpha_decrease=true,color=c_yellow,size_incrase=true,max_size="2") -> Trail effect with options
+		outline(size="5",color=c_black) -> Outline effect with options
+		shadow(size="5",color=c_black) -> Shadow effect with options
+		shadow_copy(copy_amount="5",angle="235") -> Shadow copy effect with options
 		]
 	
 	
 	%l[] -> Layer (Put text/sprite behind the main text)
 		[
-		%*[%l["Example text"]]This is the test text%/ -> Example text will be drawn behind the main text
-		%*[%l[sTextSprite,alpha="0.5"]]AAaaaAaAaAaAaaa%/ -> sTextSprite will be drawn behind the text
+		%*[%l("Example text")]This is the test text%/ -> Example text will be drawn behind the main text
+		%*[%l(sTextSprite,alpha="0.5")]AAaaaAaAaAaAaaa%/ -> sTextSprite will be drawn behind the text
 		]
 		
 		
@@ -139,7 +139,7 @@
 		
 	%snd[] -> Sound
 		[
-		voice1[pitch="0.5"] -> Plays the sound
+		voice1(pitch="0.5") -> Plays the sound
 		]
 	
 	
