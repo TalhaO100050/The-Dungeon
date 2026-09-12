@@ -1,10 +1,13 @@
-function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
+function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_camera=true){
 
 	//Markup tags
 	static markup_tags = {
 		"*" : "group start",
 		"'" : "group end",
 		"n" : "next line",
+		"xs" : "x start",
+		"ys" : "y start",
+		"ftc" : "fix to camera",
 		"c" : "color",
 		"xo" : "x offset",
 		"yo" : "y offset",
@@ -23,10 +26,7 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 		"d" : "delay",
 		"snd" : "sound",
 		"ani" : "animation",
-		"scr" : "scripts",
-		"xs" : "x start",
-		"ys" : "y start",
-		"ftc" : "fix to camera"
+		"scr" : "scripts"
 	}
 		
 	//Restore markup tags
@@ -105,13 +105,13 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 	}
 
 	//Name of the text	
-	var textName = "_" + string(xth_use_in_this_object);
+	var textName = "Text_" + string(xth_use_in_this_object);
 	
 	//Decode the string if it isnt done before
 	if (!struct_exists(TextBoxes,textName)){
 		
 		//Create the textbox struct
-		var textNameStructTree = string(textName) + "Tree";
+		var textNameStructTree = string(textName) + "_Tree";
 		TextBoxes[$textNameStructTree] = {
 			"level" : 0,
 			"x_pos" : start_x,
@@ -351,21 +351,24 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 		//Make the text array
 		TextBoxes[$textName] = {
 			"currentFrames" : 0,
-			"lettersList" : []
+			"letterList" : []
 		}
 		
 		var current_number = 0
 		current_struct = TextBoxes[$textNameStructTree];
-		
+	
 		while (true){
-			if (current_struct[$("_" + string(current_number) + "_text]")]){
+			if (struct_exists(current_struct, ("_" + string(current_number) + "_text"))){
 				//Calculate parameters and add letters to the letterList
 				//we have current struct and text string ok? work with that here
+				array_push(TextBoxes[$textName].letterList, current_struct[$("_" + string(current_number) + "_text")]); //Test
 				
+				current_number ++;
 			
-			}else if (current_struct[$("_" + string(current_number) + "_group")]){
+			}else if (struct_exists(current_struct, ("_" + string(current_number) + "_group"))){
 				//Go deeper
 				current_struct = current_struct[$("_" + string(current_number) + "_group")];
+				current_number = 0;
 			}else{
 				//If read all then stop
 				if (current_struct.level == 0){break;}
@@ -377,13 +380,15 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 				//Find the correct number
 				var names = struct_get_names(current_struct);
 				for (var i = 0; i < array_length(names); i++){
-					if (current_struct[$names[i]] == child_struct){
+					if (current_struct[$names[i]] == child_struct){	
 						j = 2;
 						current_number = ""
 						while (string_char_at(names[i],j) != "_"){
-							current_number += string_char_at(names[i],j); 
+							current_number += string_char_at(names[i],j);
+							j++;
 						}
 						current_number = int64(current_number);
+						current_number ++;
 					}
 				}
 			}
