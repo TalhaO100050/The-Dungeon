@@ -250,7 +250,7 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 										if(struct_exists(current_struct,create_group_current_markup_tag)){struct_remove(current_struct,create_group_current_markup_tag);}
 										}else{
 										//Restore markup tag
-										if (current_struct.level == 0){show_error("sNewText -> Tried using restore narkup tag at the root : " + text,true);}
+										if (current_struct.level == 0){show_error("sNewText -> Tried using restore markup tag at the root : " + text,true);}
 										struct_set(current_struct,create_group_current_markup_tag,struct_get(current_struct.parent.parent,create_group_current_markup_tag));
 										}
 									}else{
