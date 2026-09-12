@@ -376,10 +376,10 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 					struct_set(new_letter,"letter",string_char_at(current_struct[$("_" + string(current_number) + "_text")], k));
 					
 					//Add markup tags to  struct
-					for (var l = 0; l < struct_names_count(markup_tags) - 1; l++){
+					for (var l = 0; l < struct_names_count(restorable_markup_tags); l++){
 						//If markup tag exist add it
-						if(struct_exists(current_struct, struct_get_names(markup_tags)[l])){
-							struct_set(new_letter,struct_get_names(markup_tags)[l],struct_get(current_struct, struct_get_names(markup_tags)[l]));	
+						if(struct_exists(current_struct, struct_get_names(restorable_markup_tags)[l])){
+							struct_set(new_letter,struct_get_names(restorable_markup_tags)[l],struct_get(current_struct, struct_get_names(restorable_markup_tags)[l]));	
 						}
 					}
 					
