@@ -38,6 +38,7 @@
     {"id":{"name":"scrNewText","path":"scripts/scrNewText/scrNewText.yy",},},
     {"id":{"name":"scrNewTextGroupEnd","path":"scripts/scrNewTextGroupEnd/scrNewTextGroupEnd.yy",},},
     {"id":{"name":"scrNewTextGroupStart","path":"scripts/scrNewTextGroupStart/scrNewTextGroupStart.yy",},},
+    {"id":{"name":"scrNewTextSetIdentifiers","path":"scripts/scrNewTextSetIdentifiers/scrNewTextSetIdentifiers.yy",},},
     {"id":{"name":"scrOptions","path":"scripts/scrOptions/scrOptions.yy",},},
     {"id":{"name":"sNewTextExp","path":"scripts/sNewTextExp/sNewTextExp.yy",},},
     {"id":{"name":"s0","path":"sprites/s0/s0.yy",},},

@@ -191,14 +191,17 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 								if (string_char_at(text,i) == "]"){bracet_counter--;}
 								if (bracet_counter != 0){current_markup_tag_value += string_char_at(text,i);}
 							}
+							
 							//Save the markup tag values
 							var value = scrNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
 							current_text = value.current_text;
 							current_struct = value.current_struct;
 							
 							i++;
-							current_text += string_char_at(text,i);
-							current_struct[$ current_markup_tag] = current_markup_tag_value;
+							
+							//Formatını düzenleyip kaydet
+							var parent_value = struct_exists(current_struct, current_markup_tag) ? current_struct[$ current_markup_tag] : {};
+							current_struct[$ current_markup_tag] = scrNewTextSetIdentifiers(current_markup_tag_value, parent_value);
 							
 							var value = scrNewTextGroupEnd(current_struct,text,current_text);
 							current_struct = value.current_struct;
@@ -263,7 +266,8 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 										}
 		
 										//Set markup tag
-										struct_set(current_struct,create_group_current_markup_tag,create_group_current_markup_tag_value);
+										var parent_value = struct_exists(current_struct, create_group_current_markup_tag) ? current_struct[$ create_group_current_markup_tag] : {};
+										struct_set(current_struct, create_group_current_markup_tag, scrNewTextSetIdentifiers(create_group_current_markup_tag_value, parent_value));
 									}
 								}else{
 									//Unexpected character	
