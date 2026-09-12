@@ -125,6 +125,7 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 		var current_markup_tag_value = "";
 		var current_level = 0;
 		var current_struct = TextBoxes[$textNameStructTree];
+		var pending_group_closes = 0
 		
 		//Start checking the text
 		for (var i = 1; i <= string_length(text); i++){
@@ -197,15 +198,11 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 							current_text = value.current_text;
 							current_struct = value.current_struct;
 							
-							i++;
-							
 							//Formatını düzenleyip kaydet
 							var parent_value = struct_exists(current_struct, current_markup_tag) ? current_struct[$ current_markup_tag] : {};
 							current_struct[$ current_markup_tag] = scrNewTextSetIdentifiers(current_markup_tag_value, parent_value);
 							
-							var value = scrNewTextGroupEnd(current_struct,text,current_text);
-							current_struct = value.current_struct;
-							current_text = value.current_text;
+							pending_group_closes++;
 							
 						//Unexpected character
 						}else{
@@ -338,6 +335,13 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 			}else{
 				//Character add
 				current_text += string_char_at(text,i);
+				
+				while (pending_group_closes > 0){
+					var value = scrNewTextGroupEnd(current_struct, text, current_text);
+					current_struct = value.current_struct;
+					current_text = value.current_text;
+					pending_group_closes = 0;
+				}
 			}
 		}
 		//Save the last text
@@ -358,16 +362,35 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 			"letterList" : []
 		}
 		
+		var new_letter;
 		var current_number = 0
 		current_struct = TextBoxes[$textNameStructTree];
 	
 		while (true){
 			if (struct_exists(current_struct, ("_" + string(current_number) + "_text"))){
-				//Calculate parameters and add letters to the letterList
-				//we have current struct and text string ok? work with that here
-				
-				//You have to use another loop here for each letter.
-				array_push(TextBoxes[$textName].letterList, current_struct[$("_" + string(current_number) + "_text")]); //Test
+				//Look every letter at text
+				for (var k = 1; k <= string_length(current_struct[$("_" + string(current_number) + "_text")]); k++){
+					new_letter = {};
+					
+					//Add letter to struct
+					struct_set(new_letter,"letter",string_char_at(current_struct[$("_" + string(current_number) + "_text")], k));
+					
+					//Add markup tags to  struct
+					for (var l = 0; l < struct_names_count(markup_tags) - 1; l++){
+						//If markup tag exist add it
+						if(struct_exists(current_struct, struct_get_names(markup_tags)[l])){
+							struct_set(new_letter,struct_get_names(markup_tags)[l],struct_get(current_struct, struct_get_names(markup_tags)[l]));	
+						}
+					}
+					
+					//Add x_pos y_pos and fix_to_cam
+					struct_set(new_letter,"x_pos",struct_get(TextBoxes[$textNameStructTree], "x_pos"));
+					struct_set(new_letter,"y_pos",struct_get(TextBoxes[$textNameStructTree], "y_pos"));
+					struct_set(new_letter,"fix_to_cam",struct_get(TextBoxes[$textNameStructTree], "fix_to_cam"));
+					
+					//Add struct to array
+					array_push(TextBoxes[$textName].letterList, new_letter);
+				}
 				
 				current_number ++;
 			
