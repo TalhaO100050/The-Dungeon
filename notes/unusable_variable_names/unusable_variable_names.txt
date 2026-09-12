@@ -1,4 +1,4 @@
 DO NOT USE THESE AS VARIABLE NAMES THESE ARE USED IN SCRIPTS
 
-BasicTimer
-TextBoxes
+BasicTimer -> scrBasicTimer
+TextBoxes -> scrNewText
