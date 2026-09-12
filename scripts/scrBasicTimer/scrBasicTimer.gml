@@ -1,4 +1,4 @@
-function sBasicTimer(timer_name, frames_to_count, active_frames = 1, looping = true){
+function scrBasicTimer(timer_name, frames_to_count, active_frames = 1, looping = true){
 	/// @function							sBasicTimer(timer_name,frames_to_count,*active_frames) = bool
 	/// @param {string} timer_name			Name of the timer
 	/// @param {number} frames_to_count		Number of frames before returning true

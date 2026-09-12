@@ -1,4 +1,4 @@
-function sNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
+function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 
 	//Markup tags
 	static markup_tags = {
@@ -156,7 +156,7 @@ function sNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 							if (string_char_at(text,i + 1) == "/"){
 								i++
 								//Save the markup tag values
-								var value = sNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
+								var value = scrNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
 								current_text = value.current_text;
 								current_struct = value.current_struct;
 								
@@ -164,12 +164,12 @@ function sNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 								current_text += string_char_at(text,i);
 								if(struct_exists(current_struct,current_markup_tag)){struct_remove(current_struct,current_markup_tag);}
 								
-								var value = sNewTextGroupEnd(current_struct,text,current_text);
+								var value = scrNewTextGroupEnd(current_struct,text,current_text);
 								current_struct = value.current_struct;
 								current_text = value.current_text;
 							}else{
 								//Restore markup tag
-								var value = sNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
+								var value = scrNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
 								current_text = value.current_text;
 								current_struct = value.current_struct;
 								
@@ -177,7 +177,7 @@ function sNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 								current_text += string_char_at(text,i);
 								struct_set(current_struct,current_markup_tag,struct_get(current_struct.parent.parent,current_markup_tag));
 								
-								var value = sNewTextGroupEnd(current_struct,text,current_text);
+								var value = scrNewTextGroupEnd(current_struct,text,current_text);
 								current_struct = value.current_struct;
 								current_text = value.current_text;
 							}
@@ -192,7 +192,7 @@ function sNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 								if (bracet_counter != 0){current_markup_tag_value += string_char_at(text,i);}
 							}
 							//Save the markup tag values
-							var value = sNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
+							var value = scrNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
 							current_text = value.current_text;
 							current_struct = value.current_struct;
 							
@@ -200,7 +200,7 @@ function sNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 							current_text += string_char_at(text,i);
 							current_struct[$ current_markup_tag] = current_markup_tag_value;
 							
-							var value = sNewTextGroupEnd(current_struct,text,current_text);
+							var value = scrNewTextGroupEnd(current_struct,text,current_text);
 							current_struct = value.current_struct;
 							current_text = value.current_text;
 							
@@ -213,7 +213,7 @@ function sNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 						//If its a group start markup tag
 						if (current_markup_tag == "*"){
 							//Create and go in the new group
-							var value = sNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
+							var value = scrNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names);
 							current_text = value.current_text;
 							current_struct = value.current_struct;
 							
@@ -274,7 +274,7 @@ function sNewText(text, xth_use_in_this_object, start_x=0, start_y=0){
 						
 						//If its a group end markup tag
 						if (current_markup_tag == "'"){
-							var value = sNewTextGroupEnd(current_struct,text,current_text);
+							var value = scrNewTextGroupEnd(current_struct,text,current_text);
 							current_struct = value.current_struct;
 							current_text = value.current_text;
 						}

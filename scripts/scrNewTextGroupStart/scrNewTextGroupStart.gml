@@ -1,4 +1,4 @@
-function sNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names){
+function scrNewTextGroupStart(current_text, current_struct, restorable_markup_tag_names){
 	
 	///@function			sNewTextCreateGroup(current_text, current_struct, restorable_markup_tag_names)
 	/*

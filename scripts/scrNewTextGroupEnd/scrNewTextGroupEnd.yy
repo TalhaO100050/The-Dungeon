@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"sNewLetter",
+  "%Name":"scrNewTextGroupEnd",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"sNewLetter",
+  "name":"scrNewTextGroupEnd",
   "parent":{
     "name":"Helper Functions",
     "path":"folders/Scripts/sNewText/Helper Functions.yy",

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"sNewText",
+  "%Name":"scrNewText",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"sNewText",
+  "name":"scrNewText",
   "parent":{
     "name":"sNewText",
     "path":"folders/Scripts/sNewText.yy",

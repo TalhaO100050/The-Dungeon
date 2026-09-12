@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"sBasicTimer",
+  "%Name":"scrNewLetter",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"sBasicTimer",
+  "name":"scrNewLetter",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Helper Functions",
+    "path":"folders/Scripts/sNewText/Helper Functions.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

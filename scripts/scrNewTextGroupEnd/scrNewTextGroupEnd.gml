@@ -1,4 +1,4 @@
-function sNewTextGroupEnd(current_struct, text, current_text){
+function scrNewTextGroupEnd(current_struct, text, current_text){
 	
 	/// @function		sNewTextGroupEnd(current_struct, text, current_text)
 	/*
