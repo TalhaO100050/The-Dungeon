@@ -32,6 +32,10 @@ function scrNewTextCalculateLetter(text_struct){
 		temp_draw_struct = {};
 	 	struct_set(temp_draw_struct,"letter",struct_get(letter_struct,"letter"))
 		struct_set(temp_draw_struct,"sprite",json_parse(json_stringify(scrNewTextMarkupTagFont(letter_struct))))
+		struct_set(temp_draw_struct,"start_x",json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct))))
+		//struct_set(temp_draw_struct,"start_y",json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct))))
+		struct_set(temp_draw_struct,"x",json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct))))
+		//struct_set(temp_draw_struct,"y",json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct))))
 		
 		//Save draw_x to temp_stuct from temp_draw_struct
 		struct_set(temp_struct,"draw_1",json_parse(json_stringify(temp_draw_struct)));

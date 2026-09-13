@@ -40,6 +40,8 @@
     {"id":{"name":"scrNewTextGroupEnd","path":"scripts/scrNewTextGroupEnd/scrNewTextGroupEnd.yy",},},
     {"id":{"name":"scrNewTextGroupStart","path":"scripts/scrNewTextGroupStart/scrNewTextGroupStart.yy",},},
     {"id":{"name":"scrNewTextMarkupTagFont","path":"scripts/scrNewTextMarkupTagFont/scrNewTextMarkupTagFont.yy",},},
+    {"id":{"name":"scrNewTextMarkupTagStartX","path":"scripts/scrNewTextMarkupTagStartX/scrNewTextMarkupTagStartX.yy",},},
+    {"id":{"name":"scrNewTextMarkupTagStartY","path":"scripts/scrNewTextMarkupTagStartY/scrNewTextMarkupTagStartY.yy",},},
     {"id":{"name":"scrNewTextSetIdentifiers","path":"scripts/scrNewTextSetIdentifiers/scrNewTextSetIdentifiers.yy",},},
     {"id":{"name":"scrOptions","path":"scripts/scrOptions/scrOptions.yy",},},
     {"id":{"name":"sNewTextExp","path":"scripts/sNewTextExp/sNewTextExp.yy",},},
