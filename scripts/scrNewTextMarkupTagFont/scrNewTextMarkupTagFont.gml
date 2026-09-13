@@ -1,7 +1,7 @@
 function scrNewTextMarkupTagFont(letter_struct){
 	
 	//Characters
-	static letter_table = {
+	static default_font= {
 		"0" : s0,
 		"1" : s1,
 		"2" : s2,
@@ -78,11 +78,17 @@ function scrNewTextMarkupTagFont(letter_struct){
 		"z" : sZ_lower
 	};
 	
+	//Lookup Table
+	static font_table = {
+		"default_font":default_font
+	
+	};
+	
 	if(struct_exists(letter_struct,"f")){
 		//Font varsa
-		
-		
+		return struct_get(struct_get(font_table,struct_get(letter_struct,"f")), struct_get(letter_struct,"letter"))
 	}else{
-		return struct_get(letter_table,struct_get(letter_struct,"letter"));
+		//Font yoksa deffault font kullan
+		return struct_get(deffault_font,struct_get(letter_struct,"letter"));
 	}
 }
