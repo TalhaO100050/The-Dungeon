@@ -53,51 +53,6 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 	};
 	static restorable_markup_tag_names = struct_get_names(restorable_markup_tags);
 
-	//Characters
-	static letter_table = {
-		"0" : s0,
-		"1" : s1,
-		"2" : s2,
-		"3" : s3,
-		"4" : s4,
-		"5" : s5,
-		"6" : s6,
-		"7" : s7,
-		"8" : s8,
-		"9" : s9,
-		"A" : sA,
-		"B" : sB,
-		"C" : sC,
-		"Ç" : sC_tr,
-		"D" : sD,
-		"E" : sE,
-		"F" : sF,
-		"G" : sG,
-		"Ğ" : sG_tr,
-		"H" : sH,
-		"I" : sI,
-		"İ" : sI_tr,
-		"J" : sJ,
-		"K" : sK,
-		"L" : sL,
-		"M" : sM,
-		"N" : sN,
-		"O" : sO,
-		"Ö" : sO_tr,
-		"P" : sP,
-		"Q" : sQ,
-		"R" : sR,
-		"S" : sS,
-		"Ş" : sS_tr,
-		"T" : sT,
-		"U" : sU,
-		"Ü" : sU_tr,
-		"V" : sV,
-		"W" : sW,
-		"X" : sX,
-		"Y" : sY,
-		"Z" : sZ
-	};
 	
 	//Is TextBoxes struct exist for this object
 	if (!variable_instance_exists(id,"TextBoxes")){
