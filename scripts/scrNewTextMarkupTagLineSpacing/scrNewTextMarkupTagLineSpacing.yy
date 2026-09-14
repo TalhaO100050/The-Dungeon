@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scrNewTextMarkupTagFont",
+  "%Name":"scrNewTextMarkupTagLineSpacing",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scrNewTextMarkupTagFont",
+  "name":"scrNewTextMarkupTagLineSpacing",
   "parent":{
     "name":"Markup Tags",
     "path":"folders/Scripts/sNewText/Helper Functions/Markup Tags.yy",

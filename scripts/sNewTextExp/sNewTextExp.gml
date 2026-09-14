@@ -13,7 +13,7 @@
 	%% -> Literal %
 	
 	
-	%n/ -> Next line
+	%n[] -> Next line
 
 
 	=====================

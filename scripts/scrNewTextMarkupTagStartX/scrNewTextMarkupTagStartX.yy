@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrNewTextMarkupTagStartX",
   "parent":{
-    "name":"Helper Functions",
-    "path":"folders/Scripts/sNewText/Helper Functions.yy",
+    "name":"Markup Tags",
+    "path":"folders/Scripts/sNewText/Helper Functions/Markup Tags.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

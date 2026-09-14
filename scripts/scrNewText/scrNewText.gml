@@ -31,6 +31,7 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 		
 	//Restore markup tags
 	static restorable_markup_tags = {
+		"n":"next line",
 		"c" : "color",
 		"xo" : "x offset",
 		"yo" : "y offset",
@@ -235,8 +236,6 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 							current_text = value.current_text;
 						}
 						
-						//If its a next line markup tag
-						if (current_markup_tag == "n"){current_text += "%n"}
 						
 						//If its a x start markup tag
 						if (current_markup_tag == "xs"){

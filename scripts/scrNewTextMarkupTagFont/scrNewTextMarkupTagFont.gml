@@ -1,5 +1,8 @@
 function scrNewTextMarkupTagFont(letter_struct){
 	
+	//----IMPORTENT----
+	// WHEN ADDING NEW FONT UPDATE scrNewTextMarkupTagStartY
+	
 	//Characters
 	static default_font= {
 		"0" : s0,
@@ -89,6 +92,6 @@ function scrNewTextMarkupTagFont(letter_struct){
 		return struct_get(struct_get(font_table,struct_get(letter_struct,"f")), struct_get(letter_struct,"letter"))
 	}else{
 		//Font yoksa deffault font kullan
-		return struct_get(deffault_font,struct_get(letter_struct,"letter"));
+		return struct_get(default_font,struct_get(letter_struct,"letter"));
 	}
 }

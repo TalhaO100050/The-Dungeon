@@ -1,4 +1,12 @@
 function scrNewTextCalculateLetter(text_struct){
+	/*
+	Some markup tag functions first needs others the run.
+	scrNewTextMarkupTagFont -> letter
+	scrNewTextMarkupTagStartX -> scrNewTextMarkupTagFont
+	scrNewTextMarkupTagStartY -> scrNewTextMarkupTagFont, scrNewTextMarkupTagStartX
+	
+	
+	*/
 	
 	var letter_array = struct_get(text_struct,"letterList");
 	struct_set(text_struct,"letterListFrame",[])
@@ -10,6 +18,7 @@ function scrNewTextCalculateLetter(text_struct){
 		var letter_frame_struct = {"delay":0};
 		var temp_struct = {};
 		var temp_draw_struct = {};
+		var value;
 		
 		////Start adding letter_struct -> letter_frame_struct
 		
@@ -30,12 +39,18 @@ function scrNewTextCalculateLetter(text_struct){
 		//----Add letter draw----
 		temp_struct = {};
 		temp_draw_struct = {};
-	 	struct_set(temp_draw_struct,"letter",struct_get(letter_struct,"letter"))
-		struct_set(temp_draw_struct,"sprite",json_parse(json_stringify(scrNewTextMarkupTagFont(letter_struct))))
-		struct_set(temp_draw_struct,"start_x",json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct))))
-		//struct_set(temp_draw_struct,"start_y",json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct))))
-		struct_set(temp_draw_struct,"x",json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct))))
-		//struct_set(temp_draw_struct,"y",json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct))))
+	 	struct_set(temp_draw_struct,"letter",struct_get(letter_struct,"letter"));
+		struct_set(temp_draw_struct,"sprite",json_parse(json_stringify(scrNewTextMarkupTagFont(letter_struct))));
+		value = json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct)));
+		struct_set(temp_draw_struct,"start_x",value);
+		struct_set(temp_draw_struct,"x", value);
+		value = json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_struct)));
+		struct_set(temp_draw_struct,"start_y", value[0]);
+		struct_set(temp_draw_struct,"y", value[0]);
+		struct_set(temp_draw_struct,"line_index", value[1]);
+		struct_set(temp_draw_struct,"letter_index", value[2]);
+		scrNewTextMarkupTagKerning(letter_struct,temp_draw_struct);
+		scrNewTextMarkupTagLineSpacing(letter_struct,temp_draw_struct,letter_array_frame);
 		
 		//Save draw_x to temp_stuct from temp_draw_struct
 		struct_set(temp_struct,"draw_1",json_parse(json_stringify(temp_draw_struct)));
