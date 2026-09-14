@@ -2,7 +2,7 @@ function scrNewTextMarkupTagStartX(letter_array_frame,letter_struct){
 	
 	//First letter
 	if(array_length(letter_array_frame) == 0){
-		if(struct_get(letter_struct,"fix_to_cam") == "true"){
+		if(struct_get(letter_struct,"fix_to_cam") == true and camera_get_active() != -1){
 			return struct_get(letter_struct,"x_pos") + camera_get_view_x(camera_get_active());
 		}
 		return struct_get(letter_struct,"x_pos");

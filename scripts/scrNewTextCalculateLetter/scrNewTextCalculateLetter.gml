@@ -2,11 +2,10 @@ function scrNewTextCalculateLetter(text_struct){
 	/*
 	Some markup tag functions first needs others the run.
 	scrNewTextMarkupTagFont -> letter
-	scrNewTextMarkupTagStartX -> scrNewTextMarkupTagFont
-	scrNewTextMarkupTagStartY -> scrNewTextMarkupTagFont, scrNewTextMarkupTagStartX
+	scrNewTextMarkupTagStartX -> scrNewTextMarkupTagFont									update
+	scrNewTextMarkupTagStartY -> scrNewTextMarkupTagFont, scrNewTextMarkupTagStartX			update
 	scrNewTextMarkupTagKerning -> scrNewTextMarkupTagStartX
 	scrNewTextMarkupTagLineSpacing -> scrNewTextMarkupTagStartY
-	
 	*/
 	
 	var letter_array = struct_get(text_struct,"letterList");
@@ -23,28 +22,62 @@ function scrNewTextCalculateLetter(text_struct){
 		
 		////Start adding letter_struct -> letter_frame_struct
 		
+		
+		//-----------------
 		//----Add delay----
+		//-----------------
 		
+		
+		//-----------------
 		//----Add sound----
+		//-----------------
 		
+		
+		//------------------
 		//----Add script----
+		//------------------
 		
+		
+		//----------------------------
 		//----Add layer first draw----
+		//----------------------------
 		
-		//Save temp struct to the letter frame struct
+		
+		//----Save temp struct to the letter frame struct----
 		struct_set(letter_frame_struct,"layer_first_draw",{});
 		
-		//----Add effects draw----
 		
-		//Save temp struct to the letter frame struct
+		//------------------------
+		//----Add effects draw----
+		//------------------------
+		
+		
+		//----Save temp struct to the letter frame struct----
 		struct_set(letter_frame_struct,"effects_draw",{});
 		
+		
+		//-----------------------
 		//----Add letter draw----
+		//-----------------------
+		
+		
+		//Reset temporary structs
 		temp_struct = {};
 		temp_draw_struct = {};
+		
+		//Set letter
 	 	struct_set(temp_draw_struct,"letter",struct_get(letter_struct,"letter"));
+		
+		//Set font
 		struct_set(temp_draw_struct,"sprite",json_parse(json_stringify(scrNewTextMarkupTagFont(letter_struct))));
+		
+		//Set scale
+		value = json_parse(json_stringify(scrNewTextMarkupTagScale(letter_struct)));
+		struct_set(temp_draw_struct,"scale_x",value[0]);
+		struct_set(temp_draw_struct,"scale_y", value[1]);
 		value = json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct)));
+		
+		//Set start x/start y
 		struct_set(temp_draw_struct,"start_x",value);
 		struct_set(temp_draw_struct,"x", value);
 		value = json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_struct)));
@@ -52,21 +85,34 @@ function scrNewTextCalculateLetter(text_struct){
 		struct_set(temp_draw_struct,"y", value[0]);
 		struct_set(temp_draw_struct,"line_index", value[1]);
 		struct_set(temp_draw_struct,"letter_index", value[2]);
+		
+		//Set kerning
 		scrNewTextMarkupTagKerning(letter_struct,temp_draw_struct);
+		
+		//Set line spacing
 		scrNewTextMarkupTagLineSpacing(letter_struct,temp_draw_struct,letter_array_frame);
 		
-		//Save draw_x to temp_stuct from temp_draw_struct
+		
+		//----Save draw_x to temp_stuct from temp_draw_struct----
 		struct_set(temp_struct,"draw_1",json_parse(json_stringify(temp_draw_struct)));
 		
-		//Save temp struct to the letter frame struct
+		
+		//----Save temp struct to the letter frame struct----
 		struct_set(letter_frame_struct,"letter_draw",json_parse(json_stringify(temp_struct)));
 		
-		//----Add layer last draw----
 		
-		//Save temp struct to the letter frame struct
+		//---------------------------
+		//----Add layer last draw----
+		//---------------------------
+		
+		
+		//----Save temp struct to the letter frame struct----
 		struct_set(letter_frame_struct,"layer_last_draw",{});
 		
+		
+		//-------------------
 		//----Save struct----
+		//-------------------
 		array_push(letter_array_frame,letter_frame_struct);
 	}
 }
