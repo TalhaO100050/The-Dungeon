@@ -4,7 +4,8 @@ function scrNewTextCalculateLetter(text_struct){
 	scrNewTextMarkupTagFont -> letter
 	scrNewTextMarkupTagStartX -> scrNewTextMarkupTagFont
 	scrNewTextMarkupTagStartY -> scrNewTextMarkupTagFont, scrNewTextMarkupTagStartX
-	
+	scrNewTextMarkupTagKerning -> scrNewTextMarkupTagStartX
+	scrNewTextMarkupTagLineSpacing -> scrNewTextMarkupTagStartY
 	
 	*/
 	
@@ -30,10 +31,12 @@ function scrNewTextCalculateLetter(text_struct){
 		
 		//----Add layer first draw----
 		
+		//Save temp struct to the letter frame struct
 		struct_set(letter_frame_struct,"layer_first_draw",{});
 		
 		//----Add effects draw----
 		
+		//Save temp struct to the letter frame struct
 		struct_set(letter_frame_struct,"effects_draw",{});
 		
 		//----Add letter draw----
@@ -60,7 +63,7 @@ function scrNewTextCalculateLetter(text_struct){
 		
 		//----Add layer last draw----
 		
-		
+		//Save temp struct to the letter frame struct
 		struct_set(letter_frame_struct,"layer_last_draw",{});
 		
 		//----Save struct----
