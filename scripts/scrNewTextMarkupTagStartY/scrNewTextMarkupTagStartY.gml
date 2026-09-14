@@ -8,6 +8,9 @@ function scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_st
 	
 	//First letter
 	if(array_length(letter_array_frame) == 0){
+		if(struct_get(letter_struct,"fix_to_cam") == "true"){
+			return [struct_get(letter_struct,"y_pos") + camera_get_view_y(camera_get_active()), 0, 0];
+		}
 		return [struct_get(letter_struct,"y_pos"), 0, 0];
 	}
 	
