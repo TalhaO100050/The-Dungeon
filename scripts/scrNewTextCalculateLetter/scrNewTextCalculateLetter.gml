@@ -13,7 +13,7 @@ function scrNewTextCalculateLetter(text_struct){
 	var letter_array_frame = struct_get(text_struct,"letterListFrame");
 	
 	//Loop for all the letters
-	for (i = 0; i < array_length(letter_array); i++){
+	for (var i = 0; i < array_length(letter_array); i++){
 		var letter_struct = letter_array[i]
 		var letter_frame_struct = {"delay":0};
 		var temp_struct = {};
@@ -80,7 +80,7 @@ function scrNewTextCalculateLetter(text_struct){
 		value = json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct)));
 		struct_set(temp_draw_struct,"start_x",value);
 		struct_set(temp_draw_struct,"x", value);
-		value = json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_struct)));
+		value = json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_struct,letter_array,i)));
 		struct_set(temp_draw_struct,"start_y", value[0]);
 		struct_set(temp_draw_struct,"y", value[0]);
 		struct_set(temp_draw_struct,"line_index", value[1]);

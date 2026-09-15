@@ -1,4 +1,4 @@
-function scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_struct){
+function scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_struct,letter_array,i){
 	
 	//Find the L lenght for new line
 	static font_table_lenght = {
@@ -24,8 +24,26 @@ function scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_st
 	}
 	
 	if(struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "line_index") == line_index){
+		//Same line
 		return [struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "start_y"), line_index, struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "letter_index") + 1];
 	}else{
-		return [struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "start_y") + sprite_get_height(struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "sprite")), line_index, 0];
+		//New line
+		
+		//Find max scale
+		var max_scale_y = struct_get(temp_draw_struct,"scale_y");
+		i++;
+		while(true){
+			var current_scale = 1
+			if(struct_exists(letter_array[i],"s")){
+				if(struct_exists(struct_get(letter_array[i],"s"),"scale")){current_scale *= real(struct_get(struct_get(letter_array[i],"s"),"scale"))}
+				if(struct_exists(struct_get(letter_array[i],"s"),"scale_y")){current_scale *= real(struct_get(struct_get(letter_array[i],"s"),"scale_y"))}
+			}
+			
+			if(max_scale_y < current_scale){max_scale_y = current_scale;}
+			i++;
+			if(struct_exists(letter_array[i],"n") or array_length(letter_array) - 1 == i){break;}
+		}
+		
+		return [struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "start_y") +(max_scale_y * sprite_get_height(struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "sprite"))), line_index, 0];
 	}
 }
