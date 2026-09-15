@@ -75,9 +75,9 @@ function scrNewTextCalculateLetter(text_struct){
 		value = json_parse(json_stringify(scrNewTextMarkupTagScale(letter_struct)));
 		struct_set(temp_draw_struct,"scale_x",value[0]);
 		struct_set(temp_draw_struct,"scale_y", value[1]);
-		value = json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct)));
 		
 		//Set start x/start y
+		value = json_parse(json_stringify(scrNewTextMarkupTagStartX(letter_array_frame,letter_struct)));
 		struct_set(temp_draw_struct,"start_x",value);
 		struct_set(temp_draw_struct,"x", value);
 		value = json_parse(json_stringify(scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_struct)));
