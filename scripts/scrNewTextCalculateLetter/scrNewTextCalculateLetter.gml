@@ -2,7 +2,7 @@ function scrNewTextCalculateLetter(text_struct){
 	/*
 	Some markup tag functions first needs others the run.
 	scrNewTextMarkupTagFont -> letter
-	scrNewTextMarkupTagStartX -> scrNewTextMarkupTagFont									update
+	scrNewTextMarkupTagStartX -> scrNewTextMarkupTagFont, scrNewTextMarkupTagScale
 	scrNewTextMarkupTagStartY -> scrNewTextMarkupTagFont, scrNewTextMarkupTagStartX			update
 	scrNewTextMarkupTagKerning -> scrNewTextMarkupTagStartX
 	scrNewTextMarkupTagLineSpacing -> scrNewTextMarkupTagStartY
