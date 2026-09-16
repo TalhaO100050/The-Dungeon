@@ -44,6 +44,7 @@
     {"id":{"name":"scrNewTextMarkupTagFont","path":"scripts/scrNewTextMarkupTagFont/scrNewTextMarkupTagFont.yy",},},
     {"id":{"name":"scrNewTextMarkupTagKerning","path":"scripts/scrNewTextMarkupTagKerning/scrNewTextMarkupTagKerning.yy",},},
     {"id":{"name":"scrNewTextMarkupTagLineSpacing","path":"scripts/scrNewTextMarkupTagLineSpacing/scrNewTextMarkupTagLineSpacing.yy",},},
+    {"id":{"name":"scrNewTextMarkupTagRotate","path":"scripts/scrNewTextMarkupTagRotate/scrNewTextMarkupTagRotate.yy",},},
     {"id":{"name":"scrNewTextMarkupTagScale","path":"scripts/scrNewTextMarkupTagScale/scrNewTextMarkupTagScale.yy",},},
     {"id":{"name":"scrNewTextMarkupTagStartX","path":"scripts/scrNewTextMarkupTagStartX/scrNewTextMarkupTagStartX.yy",},},
     {"id":{"name":"scrNewTextMarkupTagStartY","path":"scripts/scrNewTextMarkupTagStartY/scrNewTextMarkupTagStartY.yy",},},

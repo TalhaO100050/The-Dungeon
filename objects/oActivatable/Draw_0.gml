@@ -1,1 +1,1 @@
-scrNewText("%*[%d[seconds(.1)]]Mer%*[%s[scale(2)]%yo[500]%xo[500]]h%'/aba dünya nasılsın %n[]Ben iyiyim teşekkürler%'/",1,150,150);
+scrNewText("%*[%d[seconds(.1)]]Mer%*[%s[scale(2)]%yo[500]%xo[500]%r[90]]h%'/aba dünya nasılsın %n[]Ben iyiyim teşekkürler%'/",1,150,150);

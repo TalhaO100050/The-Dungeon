@@ -77,7 +77,7 @@ function scrNewTextBuild(text_struct){
 	 	struct_set(temp_draw_struct,"letter",struct_get(letter_struct,"letter"));
 		
 		//Set font
-		struct_set(temp_draw_struct,"sprite",json_parse(json_stringify(scrNewTextMarkupTagFont(letter_struct))));
+		struct_set(temp_draw_struct,"sprite",scrNewTextMarkupTagFont(letter_struct));
 		
 		//Set scale
 		value = json_parse(json_stringify(scrNewTextMarkupTagScale(letter_struct)));
@@ -104,6 +104,8 @@ function scrNewTextBuild(text_struct){
 		scrNewTextMarkupTagXOffset(temp_draw_struct,letter_struct);
 		scrNewTextMarkupTagYOffset(temp_draw_struct,letter_struct);
 		
+		//Set rotate
+		struct_set(temp_draw_struct,"rotate",scrNewTextMarkupTagRotate(letter_struct));
 		
 		//----Save draw_x to temp_stuct from temp_draw_struct----
 		struct_set(temp_struct,"draw_1",json_parse(json_stringify(temp_draw_struct)));
