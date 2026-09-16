@@ -107,6 +107,9 @@ function scrNewTextBuild(text_struct){
 		//Set rotate
 		struct_set(temp_draw_struct,"rotate",scrNewTextMarkupTagRotate(letter_struct));
 		
+		//Set movement
+		scrNewTextMarkupTagMovement(temp_draw_struct,letter_struct,frame_number,letter_array_frame,i);
+		
 		//----Save draw_x to temp_stuct from temp_draw_struct----
 		struct_set(temp_struct,"draw_1",json_parse(json_stringify(temp_draw_struct)));
 		
