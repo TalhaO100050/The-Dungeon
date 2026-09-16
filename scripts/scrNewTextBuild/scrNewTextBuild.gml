@@ -12,10 +12,13 @@ function scrNewTextBuild(text_struct){
 	struct_set(text_struct,"letterListFrame",[])
 	var letter_array_frame = struct_get(text_struct,"letterListFrame");
 	
+	var frame_number = struct_get(text_struct,"currentFrames");
+	frame_number++;
+	struct_set(text_struct,"currentFrames", frame_number);
 	//Loop for all the letters
 	for (var i = 0; i < array_length(letter_array); i++){
 		var letter_struct = letter_array[i]
-		var letter_frame_struct = {"delay":0};
+		var letter_frame_struct = {"delay":1};
 		var temp_struct = {};
 		var temp_draw_struct = {};
 		var value;
@@ -28,6 +31,9 @@ function scrNewTextBuild(text_struct){
 		//-----------------
 		
 		
+		struct_set(letter_frame_struct,"delay",json_parse(json_stringify(scrNewTextMarkupTagDelay(letter_struct,letter_array_frame,letter_array,i))));
+		
+
 		//-----------------
 		//----Add sound----
 		//-----------------
@@ -115,4 +121,13 @@ function scrNewTextBuild(text_struct){
 		//-------------------
 		array_push(letter_array_frame,letter_frame_struct);
 	}
+	
+	//Erase unused letters
+	var visible_letters = [];
+	for (var i = 0; i < array_length(letter_array_frame); i++){
+		if (struct_get(letter_array_frame[i], "delay") <= frame_number){
+			array_push(visible_letters, letter_array_frame[i]);
+		}
+	}
+	struct_set(text_struct, "letterListFrame", visible_letters);
 }

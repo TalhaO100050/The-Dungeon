@@ -40,6 +40,7 @@
     {"id":{"name":"scrNewTextBuild","path":"scripts/scrNewTextBuild/scrNewTextBuild.yy",},},
     {"id":{"name":"scrNewTextGroupEnd","path":"scripts/scrNewTextGroupEnd/scrNewTextGroupEnd.yy",},},
     {"id":{"name":"scrNewTextGroupStart","path":"scripts/scrNewTextGroupStart/scrNewTextGroupStart.yy",},},
+    {"id":{"name":"scrNewTextMarkupTagDelay","path":"scripts/scrNewTextMarkupTagDelay/scrNewTextMarkupTagDelay.yy",},},
     {"id":{"name":"scrNewTextMarkupTagFont","path":"scripts/scrNewTextMarkupTagFont/scrNewTextMarkupTagFont.yy",},},
     {"id":{"name":"scrNewTextMarkupTagKerning","path":"scripts/scrNewTextMarkupTagKerning/scrNewTextMarkupTagKerning.yy",},},
     {"id":{"name":"scrNewTextMarkupTagLineSpacing","path":"scripts/scrNewTextMarkupTagLineSpacing/scrNewTextMarkupTagLineSpacing.yy",},},
