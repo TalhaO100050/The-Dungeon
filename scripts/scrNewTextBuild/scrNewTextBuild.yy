@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scrNewTextCalculateLetter",
+  "%Name":"scrNewTextBuild",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scrNewTextCalculateLetter",
+  "name":"scrNewTextBuild",
   "parent":{
     "name":"Helper Functions",
     "path":"folders/Scripts/sNewText/Helper Functions.yy",

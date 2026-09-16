@@ -2,7 +2,7 @@ function scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_st
 	
 	//Find the L lenght for new line
 	static font_table_lenght = {
-		"default_font":sL
+		"default_font":sM
 	
 	};
 	

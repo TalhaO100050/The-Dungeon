@@ -4,7 +4,7 @@ function scrNewTextMarkupTagLineSpacing(letter_struct,temp_draw_struct,letter_ar
 	
 	//Get line spacing pixel
 	if(!struct_exists(letter_struct, "j")){
-		line_spacing = 25;
+		line_spacing = 50;
 	}else{
 		line_spacing = int64(struct_get(letter_struct, "j"));
 	}

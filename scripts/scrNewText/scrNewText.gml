@@ -375,7 +375,7 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 	}
 	
 	//Calculate letter placement and everything
-	scrNewTextCalculateLetter(TextBoxes[$textName]);
+	scrNewTextBuild(TextBoxes[$textName]);
 	
 	//Draw
 	for (var m = 0; m < array_length(struct_get(TextBoxes[$textName], "letterListFrame")); m++){

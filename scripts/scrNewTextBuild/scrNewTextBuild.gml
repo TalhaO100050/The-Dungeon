@@ -1,4 +1,4 @@
-function scrNewTextCalculateLetter(text_struct){
+function scrNewTextBuild(text_struct){
 	/*
 	Some markup tag functions first needs others the run.
 	scrNewTextMarkupTagFont -> letter

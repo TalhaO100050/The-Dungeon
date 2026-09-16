@@ -78,7 +78,8 @@ function scrNewTextMarkupTagFont(letter_struct){
 		"w" : sW_lower,
 		"x" : sX_lower,
 		"y" : sY_lower,
-		"z" : sZ_lower
+		"z" : sZ_lower,
+		" " : sSpace
 	};
 	
 	//Lookup Table

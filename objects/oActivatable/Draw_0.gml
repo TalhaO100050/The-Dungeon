@@ -1,1 +1,1 @@
-scrNewText("%*[]Test%n[]Test%'/",1,150,150);
+scrNewText("Merhaba dünya%n[]Bu gün güzel bir gün%n[]Yani sanırım%n[]umarım111",1,150,150);
