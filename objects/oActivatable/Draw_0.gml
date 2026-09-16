@@ -1,0 +1,1 @@
+scrNewText("%*[]Test%n[]Test%'/",1,150,150);

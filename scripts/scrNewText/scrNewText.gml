@@ -377,5 +377,11 @@ function scrNewText(text, xth_use_in_this_object, start_x=0, start_y=0, fix_to_c
 	//Calculate letter placement and everything
 	scrNewTextCalculateLetter(TextBoxes[$textName]);
 	
-	show_debug_message(json_stringify(TextBoxes));
+	//Draw
+	for (var m = 0; m < array_length(struct_get(TextBoxes[$textName], "letterListFrame")); m++){
+		var letter_draw_draw_1 = struct_get(struct_get(struct_get(TextBoxes[$textName], "letterListFrame")[m], "letter_draw"),"draw_1");
+		scrNewLetter(struct_get(letter_draw_draw_1, "sprite"),struct_get(letter_draw_draw_1, "x"),struct_get(letter_draw_draw_1, "y"),{"scale_x": struct_get(letter_draw_draw_1, "scale_x"),"scale_y": struct_get(letter_draw_draw_1, "scale_y")})
+	}
+	
+	//show_debug_message(json_stringify(TextBoxes));
 }
