@@ -3,9 +3,11 @@ function scrNewTextBuild(text_struct){
 	Some markup tag functions first needs others the run.
 	scrNewTextMarkupTagFont -> letter
 	scrNewTextMarkupTagStartX -> scrNewTextMarkupTagFont, scrNewTextMarkupTagScale
-	scrNewTextMarkupTagStartY -> scrNewTextMarkupTagFont, scrNewTextMarkupTagStartX			update
+	scrNewTextMarkupTagStartY -> scrNewTextMarkupTagFont, scrNewTextMarkupTagStartX, scrNewTextMarkupTagScale	
 	scrNewTextMarkupTagKerning -> scrNewTextMarkupTagStartX
 	scrNewTextMarkupTagLineSpacing -> scrNewTextMarkupTagStartY
+	scrNewTextMarkupTagXOffset -> scrNewTextMarkupTagStartX
+	scrNewTextMarkupTagYOffset -> scrNewTextMarkupTagStartY
 	*/
 	
 	var letter_array = struct_get(text_struct,"letterList");
@@ -97,6 +99,10 @@ function scrNewTextBuild(text_struct){
 		
 		//Set line spacing
 		scrNewTextMarkupTagLineSpacing(letter_struct,temp_draw_struct,letter_array_frame);
+		
+		//Set x offset/y offset
+		scrNewTextMarkupTagXOffset(temp_draw_struct,letter_struct);
+		scrNewTextMarkupTagYOffset(temp_draw_struct,letter_struct);
 		
 		
 		//----Save draw_x to temp_stuct from temp_draw_struct----
