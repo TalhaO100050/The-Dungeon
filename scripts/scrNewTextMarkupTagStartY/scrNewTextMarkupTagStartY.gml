@@ -1,11 +1,5 @@
 function scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_struct,letter_array,i){
 	
-	//Find the L lenght for new line
-	static font_table_lenght = {
-		"default_font":sM
-	
-	};
-	
 	//First letter
 	if(array_length(letter_array_frame) == 0){
 		if(struct_get(letter_struct,"fix_to_cam") == true and camera_get_active() != -1){
@@ -30,20 +24,25 @@ function scrNewTextMarkupTagStartY(letter_array_frame,letter_struct,temp_draw_st
 		//New line
 		
 		//Find max scale
-		var max_scale_y = struct_get(temp_draw_struct,"scale_y");
+		var max_height = struct_get(temp_draw_struct,"scale_y") * sprite_get_yoffset(struct_get(temp_draw_struct,"sprite"));
 		i++;
 		while(true){
-			var current_scale = 1
+			var current_scale = 1;
+			var current_font = "default_font";
+			var current_letter = struct_get(letter_array[i],"letter");
 			if(struct_exists(letter_array[i],"s")){
-				if(struct_exists(struct_get(letter_array[i],"s"),"scale")){current_scale *= real(struct_get(struct_get(letter_array[i],"s"),"scale"))}
-				if(struct_exists(struct_get(letter_array[i],"s"),"scale_y")){current_scale *= real(struct_get(struct_get(letter_array[i],"s"),"scale_y"))}
+				if(struct_exists(struct_get(letter_array[i],"s"),"scale")){current_scale *= real(struct_get(struct_get(letter_array[i],"s"),"scale"));}
+				if(struct_exists(struct_get(letter_array[i],"s"),"scale_y")){current_scale *= real(struct_get(struct_get(letter_array[i],"s"),"scale_y"));}
 			}
+			if(struct_exists(letter_array[i],"f")){current_font = struct_get(letter_array[i],"f");}
 			
-			if(max_scale_y < current_scale){max_scale_y = current_scale;}
+			var current_height = current_scale * sprite_get_yoffset(scrNewTextMarkupTagFonts(current_font, current_letter));
+			
+			if(max_height < current_height){max_height = current_height;}
 			i++;
 			if(struct_exists(letter_array[i],"n") or array_length(letter_array) - 1 == i){break;}
 		}
 		
-		return [struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "start_y") +(max_scale_y * sprite_get_height(struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "sprite"))), line_index, 0];
+		return [struct_get(struct_get(struct_get(letter_array_frame[array_length(letter_array_frame) - 1], "letter_draw"), "draw_1"), "start_y") + max_height, line_index, 0];
 	}
 }

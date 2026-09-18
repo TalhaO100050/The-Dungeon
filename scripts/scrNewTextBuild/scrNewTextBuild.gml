@@ -8,6 +8,7 @@ function scrNewTextBuild(text_struct){
 	scrNewTextMarkupTagLineSpacing -> scrNewTextMarkupTagStartY
 	scrNewTextMarkupTagXOffset -> scrNewTextMarkupTagStartX
 	scrNewTextMarkupTagYOffset -> scrNewTextMarkupTagStartY
+	scrNewTextMarkupTagMovement -> scrNewTextMarkupTagStartX, scrNewTextMarkupTagStartY, scrNewTextMarkupTagDelay
 	*/
 	
 	var letter_array = struct_get(text_struct,"letterList");

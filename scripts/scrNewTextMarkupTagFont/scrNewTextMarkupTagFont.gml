@@ -1,98 +1,10 @@
 function scrNewTextMarkupTagFont(letter_struct){
 	
-	//----IMPORTENT----
-	// WHEN ADDING NEW FONT UPDATE scrNewTextMarkupTagStartY
-	
-	//Characters
-	static default_font= {
-		"0" : s0,
-		"1" : s1,
-		"2" : s2,
-		"3" : s3,
-		"4" : s4,
-		"5" : s5,
-		"6" : s6,
-		"7" : s7,
-		"8" : s8,
-		"9" : s9,
-		"A" : sA,
-		"B" : sB,
-		"C" : sC,
-		"Ç" : sC_tr,
-		"D" : sD,
-		"E" : sE,
-		"F" : sF,
-		"G" : sG,
-		"Ğ" : sG_tr,
-		"H" : sH,
-		"I" : sI,
-		"İ" : sI_tr,
-		"J" : sJ,
-		"K" : sK,
-		"L" : sL,
-		"M" : sM,
-		"N" : sN,
-		"O" : sO,
-		"Ö" : sO_tr,
-		"P" : sP,
-		"Q" : sQ,
-		"R" : sR,
-		"S" : sS,
-		"Ş" : sS_tr,
-		"T" : sT,
-		"U" : sU,
-		"Ü" : sU_tr,
-		"V" : sV,
-		"W" : sW,
-		"X" : sX,
-		"Y" : sY,
-		"Z" : sZ,
-		"a" : sA_lower,
-		"b" : sB_lower,
-		"c" : sC_lower,
-		"ç" : sC_tr_lower,
-		"d" : sD_lower,
-		"e" : sE_lower,
-		"f" : sF_lower,
-		"g" : sG_lower,
-		"ğ" : sG_tr_lower,
-		"h" : sH_lower,
-		"ı" : sI_lower,
-		"i" : sI_tr_lower,
-		"j" : sJ_lower,
-		"k" : sK_lower,
-		"l" : sL_lower,
-		"m" : sM_lower,
-		"n" : sN_lower,
-		"o" : sO_lower,
-		"ö" : sO_tr_lower,
-		"p" : sP_lower,
-		"q" : sQ_lower,
-		"r" : sR_lower,
-		"s" : sS_lower,
-		"ş" : sS_tr_lower,
-		"t" : sT_lower,
-		"u" : sU_lower,
-		"ü" : sU_tr_lower,
-		"v" : sV_lower,
-		"w" : sW_lower,
-		"x" : sX_lower,
-		"y" : sY_lower,
-		"z" : sZ_lower,
-		" " : sSpace
-	};
-	
-	//Lookup Table
-	static font_table = {
-		"default_font":default_font
-	
-	};
-	
 	if(struct_exists(letter_struct,"f")){
 		//Font varsa
-		return struct_get(struct_get(font_table,struct_get(letter_struct,"f")), struct_get(letter_struct,"letter"))
+		return scrNewTextMarkupTagFonts(struct_get(letter_struct,"f"), struct_get(letter_struct,"letter"));
 	}else{
 		//Font yoksa deffault font kullan
-		return struct_get(default_font,struct_get(letter_struct,"letter"));
+		return scrNewTextMarkupTagFonts("default_font",struct_get(letter_struct,"letter"));
 	}
 }

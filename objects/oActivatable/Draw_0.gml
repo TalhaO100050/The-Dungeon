@@ -1,1 +1,1 @@
-scrNewText("%*[%d[seconds(.1)]%m[sin_wave_up_down(move_speed=10;length=50;delay=3;),sin_wave_left_right(move_speed=10;length=50;delay=5;)]]Meraba dünya%'/",1,150,150);
+scrNewText("%*[%d[seconds(.1)]%m[sin_wave_up_down(move_speed=20;length=50;delay=3;),sin_wave_left_right(move_speed=20;length=50;delay=5;)]]Merhaba dünya%n[]Yayayayay%'/",1,150,150);

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scrNewTextMarkupTagYOffset_1",
+  "%Name":"scrNewTextMarkupTagFonts",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scrNewTextMarkupTagYOffset_1",
+  "name":"scrNewTextMarkupTagFonts",
   "parent":{
     "name":"Markup Tags",
     "path":"folders/Scripts/sNewText/Helper Functions/Markup Tags.yy",
