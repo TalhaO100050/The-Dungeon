@@ -3,7 +3,9 @@ function scrNewTextMarkupTagMovement(temp_draw_struct,letter_struct,frame_number
 	if(struct_exists(letter_struct,"m")){
 		var movement_struct = struct_get(letter_struct,"m");
 		
-		//sin_wave_up_down
+		//------------------------
+		//----sin_wave_up_down----
+		//------------------------
 		if(struct_exists(movement_struct,"sin_wave_up_down")){
 			
 			
@@ -44,6 +46,13 @@ function scrNewTextMarkupTagMovement(temp_draw_struct,letter_struct,frame_number
 				var length = 1;
 			}
 			
+			//start_delay
+			if (struct_exists(sin_wave_up_down_options_struct,"start_delay")){
+				var start_delay = real(struct_get(sin_wave_up_down_options_struct,"start_delay"));
+			}else{
+				var start_delay = 0;
+			}
+			
 			//delay 
 			if (struct_exists(sin_wave_up_down_options_struct,"delay")){
 				
@@ -51,7 +60,7 @@ function scrNewTextMarkupTagMovement(temp_draw_struct,letter_struct,frame_number
 					var last_delay = struct_get(struct_get(struct_get(letter_array_frame[j - 1],"letter_draw"),"draw_1"),"sin_wave_up_down_delay");
 					var delay = last_delay + real(struct_get(sin_wave_up_down_options_struct,"delay"));
 				}else{
-					var delay = 0;
+					var delay = start_delay;
 				}
 				
 			}else{
@@ -66,8 +75,10 @@ function scrNewTextMarkupTagMovement(temp_draw_struct,letter_struct,frame_number
 			struct_set(temp_draw_struct, "y", (sin_wave_up_down_move + struct_get(temp_draw_struct,"y")));
 		}
 		
-		//sin_wave_left_right
-		if(struct_exists(movement_struct,"sin_wave_up_down")){
+		//---------------------------
+		//----sin_wave_left_right----
+		//---------------------------
+		if(struct_exists(movement_struct,"sin_wave_left_right")){
 			
 			
 			//Find options
@@ -107,6 +118,13 @@ function scrNewTextMarkupTagMovement(temp_draw_struct,letter_struct,frame_number
 				var length = 1;
 			}
 			
+			//start_delay
+			if (struct_exists(sin_wave_left_right_options_struct,"start_delay")){
+				var start_delay = real(struct_get(sin_wave_left_right_options_struct,"start_delay"));
+			}else{
+				var start_delay = 0;
+			}
+			
 			//delay 
 			if (struct_exists(sin_wave_left_right_options_struct,"delay")){
 				
@@ -114,7 +132,7 @@ function scrNewTextMarkupTagMovement(temp_draw_struct,letter_struct,frame_number
 					var last_delay = struct_get(struct_get(struct_get(letter_array_frame[j - 1],"letter_draw"),"draw_1"),"sin_wave_left_right_delay");
 					var delay = last_delay + real(struct_get(sin_wave_left_right_options_struct,"delay"));
 				}else{
-					var delay = 0;
+					var delay = start_delay;
 				}
 				
 			}else{
@@ -127,6 +145,74 @@ function scrNewTextMarkupTagMovement(temp_draw_struct,letter_struct,frame_number
 			
 			//Set move value
 			struct_set(temp_draw_struct, "x", (sin_wave_left_right_move + struct_get(temp_draw_struct,"x")));
+			
+			
+		}
+		
+		//-------------
+		//----shake----
+		//-------------
+		if(struct_exists(movement_struct,"shake")){
+		
+			//Find options
+			var shake_options = struct_get(movement_struct,"shake");
+			var shake_options_struct = {};
+			var option_name = "";
+			var option_value = "";
+			var current = "name";
+			for (var i = 1; string_length(shake_options) >= i; i++){
+				var letter = string_char_at(shake_options,i);
+				
+				if (letter == "="){current = "value"; continue;}
+				if (letter == ";"){
+					current = "name";
+					struct_set(shake_options_struct,option_name,option_value);
+					option_name = "";
+					option_value = "";
+					continue;
+				}
+				
+				if (current == "name"){option_name += letter;}
+				if (current == "value"){option_value += letter;}
+			}
+			
+			//----Set options----
+			//intensity
+			if (struct_exists(shake_options_struct,"intensity")){
+				var intensity = real(struct_get(shake_options_struct,"intensity"));
+			}else{
+				var intensity = 3;
+			}
+			
+			//start_delay
+			if (struct_exists(shake_options_struct,"start_delay")){
+				var start_delay = real(struct_get(shake_options_struct,"start_delay"));
+			}else{
+				var start_delay = 0;
+			}
+			
+			//delay 
+			if (struct_exists(shake_options_struct,"delay")){
+				
+				if (j != 0){
+					var last_delay = struct_get(struct_get(struct_get(letter_array_frame[j - 1],"letter_draw"),"draw_1"),"shake_delay");
+					var delay = last_delay + real(struct_get(shake_options_struct,"delay"));
+				}else{
+					var delay = start_delay;
+				}
+				
+			}else{
+				var delay = 0;
+			}
+			struct_set(temp_draw_struct,"shake_delay",delay);
+			
+			//Find move value
+			var shake_move_x = intensity * (frac(sin((delay + frame_number) * 12.9898 + (delay + frame_number)*(delay + frame_number) * 78.233) * 43758.5453) * 2 - 1);
+			var shake_move_y = intensity * (frac(sin((delay + frame_number + 10000) * 12.9898 + (delay + frame_number + 10000)*(delay + frame_number + 10000) * 78.233) * 43758.5453) * 2 - 1);
+			
+			//Set move value
+			struct_set(temp_draw_struct, "x", (shake_move_x + struct_get(temp_draw_struct,"x")));
+			struct_set(temp_draw_struct, "y", (shake_move_y + struct_get(temp_draw_struct,"y")));
 		}
 	}
 }
