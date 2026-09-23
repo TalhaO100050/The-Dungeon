@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"letters",
-    "path":"folders/Sprites/letters.yy",
+    "name":"default_font",
+    "path":"folders/Sprites/fonts/default_font.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
