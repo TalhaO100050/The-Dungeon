@@ -1,1 +1,1 @@
-scrNewText("%*[%d[seconds(.1)]%m[shake(delay=10;)]]Merhaba dünya%n[]Yayayayay%'/",1,150,150);
+scrNewText("%*[%d[seconds(.1)]%m[shake(delay=10;)]%c[#ed3ba3]]Merhaba dünya%n[]Yayayayay%'/",1,150,150);
